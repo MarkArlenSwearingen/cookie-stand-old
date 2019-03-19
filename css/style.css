@@ -33,6 +33,10 @@ h1 p {
     display: inline;
 }
 
+.highlight {
+font-family: Margarine;
+}
+
 li {
   font-size: 25px;
   font-family: Verdana, Arial, Helvetica, sans-serif;
