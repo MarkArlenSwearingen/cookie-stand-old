@@ -29,6 +29,11 @@ h1 p {
   color: rgb(15, 61, 30);
 }
 
+tr, th, td {
+  font-size: 30px;
+  padding-left: 3px;
+  /* outline: solid 3px black; */
+}
 .store {
     display: inline;
 }

@@ -31,13 +31,13 @@ var totalCookiesByStore = 0;
 
 var ul = document.getElementById('cookieForecast');
 
-for(var i = 0; i < firstAndPike.hours.length; i++){
-  var li = document.createElement('li');
-  li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-  ul.appendChild(li);
-  totalCookiesByStore = totalCookiesByStore + firstAndPike.cookiesByHour[i];
+// for(var i = 0; i < firstAndPike.hours.length; i++){
+//   var li = document.createElement('li');
+//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
+//   ul.appendChild(li);
+//   totalCookiesByStore = totalCookiesByStore + firstAndPike.cookiesByHour[i];
 
-}
+// }
 var liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
 li = document.createElement('li');
 li.textContent = (liTotalText);
@@ -73,13 +73,13 @@ totalCookiesByStore = 0;
 
 ul = document.getElementById('cookieForecastSeatac');
 
-for( i = 0; i < seaTac.hours.length; i++){
-  li = document.createElement('li');
-  li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-  ul.appendChild(li);
-  totalCookiesByStore = totalCookiesByStore + seaTac.cookiesByHour[i];
+// for( i = 0; i < seaTac.hours.length; i++){
+//   li = document.createElement('li');
+//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
+//   ul.appendChild(li);
+//   totalCookiesByStore = totalCookiesByStore + seaTac.cookiesByHour[i];
 
-}
+//}
 liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
 li = document.createElement('li');
 li.textContent = (liTotalText);
@@ -115,13 +115,13 @@ totalCookiesByStore = 0;
 
 ul = document.getElementById('cookieForecastSeattleCenter');
 
-for( i = 0; i < seattleCenter.hours.length; i++){
-  li = document.createElement('li');
-  li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-  ul.appendChild(li);
-  totalCookiesByStore = totalCookiesByStore + seattleCenter.cookiesByHour[i];
+// for( i = 0; i < seattleCenter.hours.length; i++){
+//   li = document.createElement('li');
+//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
+//   ul.appendChild(li);
+//   totalCookiesByStore = totalCookiesByStore + seattleCenter.cookiesByHour[i];
 
-}
+// }
 liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
 li = document.createElement('li');
 li.textContent = (liTotalText);
@@ -160,13 +160,13 @@ totalCookiesByStore = 0;
 
 ul = document.getElementById('cookieForecastCapitolHill');
 
-for( i = 0; i < capitolHill.hours.length; i++){
-  li = document.createElement('li');
-  li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-  ul.appendChild(li);
-  totalCookiesByStore = totalCookiesByStore + capitolHill.cookiesByHour[i];
+// for( i = 0; i < capitolHill.hours.length; i++){
+//   li = document.createElement('li');
+//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
+//   ul.appendChild(li);
+//   totalCookiesByStore = totalCookiesByStore + capitolHill.cookiesByHour[i];
 
-}
+// }
 liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
 li = document.createElement('li');
 li.textContent = (liTotalText);
@@ -205,13 +205,13 @@ totalCookiesByStore = 0;
 
 ul = document.getElementById('cookieForecastAlki');
 
-for( i = 0; i < alki.hours.length; i++){
-  li = document.createElement('li');
-  li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-  ul.appendChild(li);
-  totalCookiesByStore = totalCookiesByStore + alki.cookiesByHour[i];
+// for( i = 0; i < alki.hours.length; i++){
+//   li = document.createElement('li');
+//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
+//   ul.appendChild(li);
+//   totalCookiesByStore = totalCookiesByStore + alki.cookiesByHour[i];
 
-}
+// }
 liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
 li = document.createElement('li');
 li.textContent = (liTotalText);
