@@ -1,0 +1,68 @@
+img {
+  width: 50%;
+  height: auto;
+  border: 5px;
+}
+
+h1 {
+  font-size: 60px;
+  margin-left: 60px;
+  color: rgb(218, 121, 42);
+}
+
+
+h2, h3, h4 {
+  font-size: 50px;
+  margin-left: 60px;
+  margin-top: 30px;
+  color: rgb(15, 61, 30);
+}
+
+ p {
+  margin: 10px;
+  margin-left: 75px;
+  font-size: 150%;
+  
+}
+
+h1 p {
+  color: rgb(15, 61, 30);
+}
+
+.store {
+    display: inline;
+}
+
+li {
+  font-size: 25px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: black;
+  margin-left: 25px;
+  margin-top: 10px;
+  list-style-type: circle;
+  outline: solid 2px black;
+  background-color: bisque;
+  
+}
+li:last-of-type {
+  background-color: rosybrown;
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+ul {
+  font-size: 35px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: black;
+  margin-left: 25px;
+  margin-top: 10px;
+  list-style-type: circle;
+  
+}
+
+body {
+  background-color: rgb(146, 198, 218);
+  font-family:   Georgia, Times, sans-serif;
+  color: rosybrown;
+}
+
