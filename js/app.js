@@ -35,18 +35,63 @@ allStores.push(firstAndPike);
 firstAndPike.calculateAvgCookies();
 var totalCookiesByStore = 0;
 
-// var parentTable = document.getElementById('storeTable'); // Step 1: Get Parent Element
+var parentTable = document.getElementById('storeTable'); // Step 1: Get Parent Element
 // console.log(parentTable);
 
-// var render= function (parentTable) {
-//   var td = document.createElement('td'); // 2. Create element
-//   td.textContent='44';// 3. Give element content
-//   parentTable.appendChild(td); // 4. Append to the document
-//   console.log(td);
-  // var blankTh = document.createElement('th');
-  // parentTable.appendChild(blankTh);
-//};
-// render(parentTable);
+var thead = document.createElement('thead'); // 2. Create element
+thead.setAttribute('id', 'thead');// 3. Give element content
+parentTable.appendChild(thead); // 4. Append to the document
+console.log(thead);
+
+
+var tr = document.createElement('tr'); //create tr element
+thead.appendChild(tr);// Append tr to the thead
+console.log(tr);
+
+//createth function
+//set global
+var th;
+function createth(thContent, parentElement){
+  th = document.createElement('th');
+  if (thContent){
+    th.textContent=thContent;
+  }
+  parentElement.appendChild(th);
+}
+
+var th = document.createElement('th'); // create th element
+th.textContent='Cookie Forecast'; // give element content
+tr.appendChild(th);// append to tr element
+console.log(th);
+
+th = document.createElement('th'); // create th element
+th.textContent='Second Header Cookie Forecast'; // give element content
+tr.appendChild(th);// append to tr element
+console.log(th);
+
+var tbody = document.createElement('tbody'); // create tbody element
+parentTable.appendChild(tbody);// append to table element
+console.log(tbody);
+
+tr = document.createElement('tr'); //create tr element
+tbody.appendChild(tr);// Append tr to the thead
+console.log(tr);
+
+th = document.createElement('th'); // create th element
+tr.appendChild(th);// append to tr element
+console.log(th);
+
+th = document.createElement('th'); // create th element
+th.textContent='6:00 am'; // give element content
+tr.appendChild(th);// append to tr element
+console.log(th);
+
+// th = document.createElement('th'); // create th element
+// th.textContent='7:00 am'; // give element content
+// tr.appendChild(th);// append to tr element
+// console.log(th);
+createth('7:00 am', tr);
+
 
 // for(var i = 0; i < firstAndPike.hours.length; i++){
 //   var li = document.createElement('li');
@@ -55,10 +100,6 @@ var totalCookiesByStore = 0;
 //   totalCookiesByStore = totalCookiesByStore + firstAndPike.cookiesByHour[i];
 
 // }
-var liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-var li = document.createElement('li');
-li.textContent = (liTotalText);
-ul.appendChild(li);
 
 //variable to keep information about SeaTac airport
 
@@ -80,10 +121,10 @@ var ul = document.getElementById('cookieForecastSeatac');
 //   totalCookiesByStore = totalCookiesByStore + seaTac.cookiesByHour[i];
 
 //}
-liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-li = document.createElement('li');
-li.textContent = (liTotalText);
-ul.appendChild(li);
+// var liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
+// li = document.createElement('li');
+// li.textContent = (liTotalText);
+// ul.appendChild(li);
 
 //variable to keep  information about Seattle Center
 
@@ -102,10 +143,10 @@ ul = document.getElementById('cookieForecastSeattleCenter');
 //   totalCookiesByStore = totalCookiesByStore + seattleCenter.cookiesByHour[i];
 
 // }
-liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-li = document.createElement('li');
-li.textContent = (liTotalText);
-ul.appendChild(li);
+// liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
+// li = document.createElement('li');
+// li.textContent = (liTotalText);
+// ul.appendChild(li);
 
 //variable to keep  information about Capitol Hill
 
@@ -128,10 +169,10 @@ ul = document.getElementById('cookieForecastCapitolHill');
 //   totalCookiesByStore = totalCookiesByStore + CapitolHill.cookiesByHour[i];
 
 // }
-liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-li = document.createElement('li');
-li.textContent = (liTotalText);
-ul.appendChild(li);
+// liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
+// li = document.createElement('li');
+// li.textContent = (liTotalText);
+// ul.appendChild(li);
 
 // console.log(totalCookiesByStore);
 // console.log(allStores);
@@ -155,10 +196,10 @@ ul = document.getElementById('cookieForecastAlki');
 //   totalCookiesByStore = totalCookiesByStore + alki.cookiesByHour[i];
 
 // }
-liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-li = document.createElement('li');
-li.textContent = (liTotalText);
-ul.appendChild(li);
+// liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
+// li = document.createElement('li');
+// li.textContent = (liTotalText);
+// ul.appendChild(li);
 
 // console.log(totalCookiesByStore);
 console.log(allStores);
