@@ -98,12 +98,6 @@ for(i=0; i < firstAndPike.cookiesByHour.length; i++){
   tr.appendChild(th);// add td to tr 
 }
 
-// for(i=0; i < seattleCenter.cookiesByHour.length; i++){
-//   th = document.createElement('th');// create td
-//   th.textContent=seattleCenter.cookiesByHour[i]; // add content
-//   tr.appendChild(th);// add td to tr 
-// }
-
 //End of creating data for first and Pike - Refactor End for th
 
 // Create tr for seaTac
@@ -181,13 +175,20 @@ ul = document.getElementById('cookieForecastSeattleCenter');
 
 var CapitolHill = new Store('Capitol Hill', 20, 38, 2.3);
 
-
 allStores.push(CapitolHill);
 CapitolHill.calculateAvgCookies();
 totalCookiesByStore = 0;
 
-// console.log(totalCookiesByStore);
-// console.log(allStores);
+tr = document.createElement('tr'); //create tr element
+tbody.appendChild(tr);// Append tr to the tbody
+console.log(tr);
+createth('Capitol Hill', tr, 'scope', 'row');
+
+for(i=0; i < CapitolHill.cookiesByHour.length; i++){
+  th = document.createElement('th');// create td
+  th.textContent=CapitolHill.cookiesByHour[i]; // add content
+  tr.appendChild(th);// add td to tr 
+}
 
 ul = document.getElementById('cookieForecastCapitolHill');
 
@@ -215,6 +216,17 @@ var Alki = new Store('Alki', 2, 16, 4.6);
 allStores.push(Alki);
 Alki.calculateAvgCookies();
 totalCookiesByStore = 0;
+
+tr = document.createElement('tr'); //create tr element
+tbody.appendChild(tr);// Append tr to the tbody
+console.log(tr);
+createth('Alki', tr, 'scope', 'row');
+
+for(i=0; i < Alki.cookiesByHour.length; i++){
+  th = document.createElement('th');// create td
+  th.textContent=Alki.cookiesByHour[i]; // add content
+  tr.appendChild(th);// add td to tr 
+}
 
 ul = document.getElementById('cookieForecastAlki');
 
