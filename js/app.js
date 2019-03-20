@@ -35,10 +35,18 @@ allStores.push(firstAndPike);
 firstAndPike.calculateAvgCookies();
 var totalCookiesByStore = 0;
 
-//console.log(allStores);
+// var parentTable = document.getElementById('storeTable'); // Step 1: Get Parent Element
+// console.log(parentTable);
 
-
-var ul = document.getElementById('cookieForecast');
+// var render= function (parentTable) {
+//   var td = document.createElement('td'); // 2. Create element
+//   td.textContent='44';// 3. Give element content
+//   parentTable.appendChild(td); // 4. Append to the document
+//   console.log(td);
+  // var blankTh = document.createElement('th');
+  // parentTable.appendChild(blankTh);
+//};
+// render(parentTable);
 
 // for(var i = 0; i < firstAndPike.hours.length; i++){
 //   var li = document.createElement('li');
@@ -48,11 +56,11 @@ var ul = document.getElementById('cookieForecast');
 
 // }
 var liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-li = document.createElement('li');
+var li = document.createElement('li');
 li.textContent = (liTotalText);
 ul.appendChild(li);
 
-//variable to keep  information about SeaTac airport
+//variable to keep information about SeaTac airport
 
 var seaTac = new Store('SeaTac', 3, 24, 1.2);
 
@@ -63,7 +71,7 @@ totalCookiesByStore = 0;
 //console.log(totalCookiesByStore);
 //console.log(allStores);
 
-ul = document.getElementById('cookieForecastSeatac');
+var ul = document.getElementById('cookieForecastSeatac');
 
 // for( i = 0; i < seaTac.hours.length; i++){
 //   li = document.createElement('li');
@@ -169,9 +177,3 @@ console.log(allStores);
 // //Append to the document.
 // ul.appendChild(li); // 4. Append to the document
 
-/*
-//function for calculating simulated number of customers per hour
-randomCustomersPerHour: function (){
-  var simulatedNumberOfCustomersPerHour = (Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers)) + this.minHourlyCustomers;
-  console.log(simulatedNumberOfCustomersPerHour);
-}*/
