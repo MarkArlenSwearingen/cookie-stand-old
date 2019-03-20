@@ -1,32 +1,41 @@
 
 //cookie-stand
+// --------------------------------
+// Define all global functions to be used in script
+// --------------------------------
 
 var allStores = [];
+var HOURS = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 
 //variable to keep  information about firstAndPike
-var firstAndPike = {
-  storeLocation: '1st and Pike',
-  minHourlyCustomers: 23,
-  maxHourlyCustomers: 65,
-  avgCookiesPerCustomer: 6.3,
-  hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
-  cookiesByHour: [],
-  calculateAvgCookies: function(){
-    // this.cookiesByHour.push('TEST');
-    for(var i = 0; i < this.hours.length; i++){
-      var simulatedNumberOfCustomersPerHour = (Math.ceil((Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers)) + this.minHourlyCustomers));
-      //console.log(simulatedNumberOfCustomersPerHour);
-      var cookiesByHour = Math.ceil(simulatedNumberOfCustomersPerHour * this.avgCookiesPerCustomer);
-      firstAndPike.cookiesByHour.push(cookiesByHour);
-      //console.log(cookiesByHour);
-      //console.log(simulatedNumberOfCustomersPerHour);
-    }
-  },
+function Store (storeLocation, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer){
+  this.storeLocation =storeLocation;
+  this.minHourlyCustomers = minHourlyCustomers;
+  this.maxHourlyCustomers = maxHourlyCustomers;
+  this.avgCookiesPerCustomer = avgCookiesPerCustomer;
+  this.hours = HOURS;
+  this.cookiesByHour = [];
+}
+
+Store.prototype.calculateAvgCookies = function(){
+  for(var i = 0; i < this.hours.length; i++){
+    var simulatedNumberOfCustomersPerHour = (Math.ceil((Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers)) + this.minHourlyCustomers));
+    //console.log(simulatedNumberOfCustomersPerHour);
+    var result = Math.ceil(simulatedNumberOfCustomersPerHour * this.avgCookiesPerCustomer);
+    this.cookiesByHour.push(result);
+  }
+
 };
+
+
+var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
 
 allStores.push(firstAndPike);
 firstAndPike.calculateAvgCookies();
 var totalCookiesByStore = 0;
+
+//console.log(allStores);
 
 
 var ul = document.getElementById('cookieForecast');
@@ -218,7 +227,7 @@ li.textContent = (liTotalText);
 ul.appendChild(li);
 
 // console.log(totalCookiesByStore);
-console.log(allStores);
+//console.log(allStores);
 // Store the results for each location in a separate array... perhaps as a property of the object representing that location
 
 // Display the values of each array as unordered lists in the browser
