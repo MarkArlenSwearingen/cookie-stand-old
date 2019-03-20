@@ -5,7 +5,7 @@
 // --------------------------------
 
 var allStores = [];
-var HOURS = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var HOURS = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 
 
 //variable to keep  information about firstAndPike
@@ -29,77 +29,104 @@ Store.prototype.calculateAvgCookies = function(){
 };
 
 
-var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
+var firstAndPike = new Store('1st and Pike', 23, 65, 6.3); //creates store
 
 allStores.push(firstAndPike);
 firstAndPike.calculateAvgCookies();
 var totalCookiesByStore = 0;
 
+// gets parent table for creating elements within table
 var parentTable = document.getElementById('storeTable'); // Step 1: Get Parent Element
 // console.log(parentTable);
 
+// steps 2-4 for creating table header elements from table
 var thead = document.createElement('thead'); // 2. Create element
 thead.setAttribute('id', 'thead');// 3. Give element content
 parentTable.appendChild(thead); // 4. Append to the document
 console.log(thead);
 
-
+//creates tr element under thead
 var tr = document.createElement('tr'); //create tr element
 thead.appendChild(tr);// Append tr to the thead
 console.log(tr);
 
-//createth function
-//set global
+//create th function with parameters of the text content, parent element, attribute and attribut value
+
+//set global th so "var =" is not in function
 var th;
-function createth(thContent, parentElement){
+function createth(thContent, parentElement, attributes, value){
   th = document.createElement('th');
   if (thContent){
     th.textContent=thContent;
   }
+  if (attributes){
+    th.setAttribute(attributes, value);}
   parentElement.appendChild(th);
 }
 
-var th = document.createElement('th'); // create th element
-th.textContent='Cookie Forecast'; // give element content
-tr.appendChild(th);// append to tr element
-console.log(th);
-
-th = document.createElement('th'); // create th element
-th.textContent='Second Header Cookie Forecast'; // give element content
-tr.appendChild(th);// append to tr element
-console.log(th);
+// var th = document.createElement('th'); // create th element
+// th.textContent='Cookie Forecast'; // give element content
+// tr.appendChild(th);// append to tr element
+// console.log(th);
+createth('Cookie Forecast', tr, null, null); 
+createth('Second Header',tr, null, null);
 
 var tbody = document.createElement('tbody'); // create tbody element
 parentTable.appendChild(tbody);// append to table element
 console.log(tbody);
 
 tr = document.createElement('tr'); //create tr element
-tbody.appendChild(tr);// Append tr to the thead
+tbody.appendChild(tr);// Append tr to the tbody
 console.log(tr);
 
-th = document.createElement('th'); // create th element
-tr.appendChild(th);// append to tr element
-console.log(th);
-
-th = document.createElement('th'); // create th element
-th.textContent='6:00 am'; // give element content
-tr.appendChild(th);// append to tr element
-console.log(th);
-
-// th = document.createElement('th'); // create th element
-// th.textContent='7:00 am'; // give element content
-// tr.appendChild(th);// append to tr element
-// console.log(th);
-createth('7:00 am', tr);
 
 
-// for(var i = 0; i < firstAndPike.hours.length; i++){
-//   var li = document.createElement('li');
-//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-//   ul.appendChild(li);
-//   totalCookiesByStore = totalCookiesByStore + firstAndPike.cookiesByHour[i];
+createth(null,tr);
 
+// populate columns for all stores
+for (var i=0; i < HOURS.length; i++) {
+  createth(HOURS[i], tr);  
+}
+
+tr = document.createElement('tr'); //create tr element
+tbody.appendChild(tr);// Append tr to the tbody
+createth('1st and Pike', tr, 'scope', 'row');
+
+for(i=0; i < firstAndPike.cookiesByHour.length; i++){
+  th = document.createElement('th');// create td
+  th.textContent=firstAndPike.cookiesByHour[i]; // add content
+  tr.appendChild(th);// add td to tr 
+}
+
+// for(i=0; i < seattleCenter.cookiesByHour.length; i++){
+//   th = document.createElement('th');// create td
+//   th.textContent=seattleCenter.cookiesByHour[i]; // add content
+//   tr.appendChild(th);// add td to tr 
 // }
+
+//End of creating data for first and Pike - Refactor End for th
+
+// Create tr for seaTac
+tr = document.createElement('tr'); //create tr element
+tbody.appendChild(tr);// Append tr to the tbody
+console.log(tr);
+createth('seaTac', tr, 'scope', 'row');
+
+// for(i=0; i < seaTac.cookiesByHour.length; i++){
+//   th = document.createElement('th');// create td
+//   th.textContent=seaTac.cookiesByHour[i]; // add content
+//   tr.appendChild(th);// add td to tr 
+// }
+
+// tr = document.createElement('tr'); //create tr element
+// tbody.appendChild(tr);// Append tr to the tbody
+// console.log(tr);
+// createth('Capitol Hill', tr, 'scope', 'row');
+
+// tr = document.createElement('tr'); //create tr element
+// tbody.appendChild(tr);// Append tr to the tbody
+// console.log(tr);
+// createth('Alki', tr, 'scope', 'row');
 
 //variable to keep information about SeaTac airport
 
@@ -109,22 +136,13 @@ allStores.push(seaTac);
 seaTac.calculateAvgCookies();
 totalCookiesByStore = 0;
 
-//console.log(totalCookiesByStore);
-//console.log(allStores);
+for(i=0; i < seaTac.cookiesByHour.length; i++){
+  th = document.createElement('th');// create td
+  th.textContent=seaTac.cookiesByHour[i]; // add content
+  tr.appendChild(th);// add td to tr 
+}
 
 var ul = document.getElementById('cookieForecastSeatac');
-
-// for( i = 0; i < seaTac.hours.length; i++){
-//   li = document.createElement('li');
-//   li.textContent =  `${firstAndPike.hours[i]} ${firstAndPike.cookiesByHour[i]} cookies`;
-//   ul.appendChild(li);
-//   totalCookiesByStore = totalCookiesByStore + seaTac.cookiesByHour[i];
-
-//}
-// var liTotalText = 'Total: ' + totalCookiesByStore + ' cookies';
-// li = document.createElement('li');
-// li.textContent = (liTotalText);
-// ul.appendChild(li);
 
 //variable to keep  information about Seattle Center
 
@@ -133,6 +151,17 @@ var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
 allStores.push(seattleCenter);
 seattleCenter.calculateAvgCookies();
 totalCookiesByStore = 0;
+
+tr = document.createElement('tr'); //create tr element
+tbody.appendChild(tr);// Append tr to the tbody
+console.log(tr);
+createth('Seattle Airport', tr, 'scope', 'row');
+
+for(i=0; i < seattleCenter.cookiesByHour.length; i++){
+  th = document.createElement('th');// create td
+  th.textContent=seattleCenter.cookiesByHour[i]; // add content
+  tr.appendChild(th);// add td to tr 
+}
 
 ul = document.getElementById('cookieForecastSeattleCenter');
 
