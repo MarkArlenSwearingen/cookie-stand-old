@@ -22,6 +22,26 @@ Store.prototype.calculateAvgCookies = function(){
   }
 };
 
+
+//funtion to create th elements, text and attributes with values
+function createth(thContent, parentElement, attributes, value){
+  th = document.createElement('th');
+  if (thContent){
+    th.textContent=thContent;
+  }
+  if (attributes){
+    th.setAttribute(attributes, value);
+  }
+  parentElement.appendChild(th);
+}
+
+//Function to Create tr Elements for Stores
+function createtr(area){
+  tr = document.createElement('tr'); //create tr element
+  tbody.appendChild(tr);// Append tr to the tbody
+  createth(area, tr, 'scope', 'row');
+}
+
 // --------------------------------
 // Define all data to be used in script
 // --------------------------------
@@ -40,7 +60,6 @@ var seaTac = new Store('SeaTac', 'seaTac', 3, 24, 1.2);
 var seattleCenter = new Store('Seattle Center', 'seattleCenter', 11, 38, 3.7);
 var CapitolHill = new Store('Capitol Hill', 'capitolHill', 20, 38, 2.3);
 var Alki = new Store('Alki', 'alki', 2, 16, 4.6);
-
 
 allStores.push(firstAndPike);
 allStores.push(seaTac);
@@ -67,19 +86,6 @@ parentTable.appendChild(thead); // 4. Append to the document
 var tr = document.createElement('tr'); //create tr element
 thead.appendChild(tr);// Append tr to the thead
 
-//create th function with parameters of the text content, parent element, attribute and attribut value
-//funtion to create th elements, text and attributes with values
-function createth(thContent, parentElement, attributes, value){
-  th = document.createElement('th');
-  if (thContent){
-    th.textContent=thContent;
-  }
-  if (attributes){
-    th.setAttribute(attributes, value);
-  }
-  parentElement.appendChild(th);
-}
-
 createth('Cookie Forecast', tr, null, null);
 
 var tbody = document.createElement('tbody'); // create tbody element
@@ -95,10 +101,8 @@ for (var i=0; i < HOURS.length; i++) {
   createth(HOURS[i], tr);
 }
 
-//Create elements with information about firstAndPike
-tr = document.createElement('tr'); //create tr element
-tbody.appendChild(tr);// Append tr to the tbody
-createth('1st and Pike', tr, 'scope', 'row');
+//Create tr elements with information about firstAndPike
+createtr('1st and Pike');
 
 //for loop to create th elements including number of cookies by hour (This is by store.cookiesByHour so make into function)
 //Creating data for first and Pike
@@ -108,10 +112,8 @@ for(i=0; i < firstAndPike.cookiesByHour.length; i++){
   tr.appendChild(th);// add td to tr
 }
 
-// Create tr for seaTac (Potential for creating a function as it is done for each store.)
-tr = document.createElement('tr'); //create tr element
-tbody.appendChild(tr);// Append tr to the tbody
-createth('seaTac', tr, 'scope', 'row');
+//Create tr elements with information about SeaTac
+createtr('SeaTac');
 
 // This is by store.cookiesByHour so make into function
 for(i=0; i < seaTac.cookiesByHour.length; i++){
@@ -120,10 +122,8 @@ for(i=0; i < seaTac.cookiesByHour.length; i++){
   tr.appendChild(th);// add td to tr
 }
 
-//Create Elements for Seattle Center.
-tr = document.createElement('tr'); //create tr element
-tbody.appendChild(tr);// Append tr to the tbody
-createth('Seattle Airport', tr, 'scope', 'row');
+//Create tr elements with information about Seattle Center
+createtr('Seattle Center');
 
 // This is by store.cookiesByHour so make into function
 for(i=0; i < seattleCenter.cookiesByHour.length; i++){
@@ -132,10 +132,8 @@ for(i=0; i < seattleCenter.cookiesByHour.length; i++){
   tr.appendChild(th);// add td to tr
 }
 
-//Create Elements for Capitol Hill
-tr = document.createElement('tr'); //create tr element
-tbody.appendChild(tr);// Append tr to the tbody
-createth('Capitol Hill', tr, 'scope', 'row');
+//Create tr elements with information about Capitol Hill
+createtr('Capitol Hill');
 
 // This is by store.cookiesByHour so make into function
 for(i=0; i < CapitolHill.cookiesByHour.length; i++){
@@ -144,10 +142,8 @@ for(i=0; i < CapitolHill.cookiesByHour.length; i++){
   tr.appendChild(th);// add td to tr
 }
 
-//Create Elements for Alki
-tr = document.createElement('tr'); //create tr element
-tbody.appendChild(tr);// Append tr to the tbody
-createth('Alki', tr, 'scope', 'row');
+//Create tr elements with information about Alki
+createtr('Alki');
 
 // This is by store.cookiesByHour so make into function
 for(i=0; i < Alki.cookiesByHour.length; i++){
