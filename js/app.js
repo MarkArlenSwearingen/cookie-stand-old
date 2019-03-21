@@ -4,9 +4,9 @@
 // Define all global functions to be used in script
 // --------------------------------
 
-//variable to keep  information about firstAndPike
-function Store (storeLocation, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer){
-  this.storeLocation =storeLocation;
+function Store (storeLocation, storeID, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer){
+  this.storeLocation = storeLocation;
+  this.storeID = storeID;
   this.minHourlyCustomers = minHourlyCustomers;
   this.maxHourlyCustomers = maxHourlyCustomers;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
@@ -29,15 +29,31 @@ Store.prototype.calculateAvgCookies = function(){
 var allStores = [];
 var HOURS = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 var totalCookiesByStore = 0;
+var th; //set global th so "var =" is not in function createth
 
 // --------------------------------
 // Run script
 // --------------------------------
-var firstAndPike = new Store('1st and Pike', 23, 65, 6.3); //creates store
+//variables to keep information by store
+var firstAndPike = new Store('1st and Pike', 'firstAndPike', 23, 65, 6.3); //creates store
+var seaTac = new Store('SeaTac', 'seaTac', 3, 24, 1.2);
+var seattleCenter = new Store('Seattle Center', 'seattleCenter', 11, 38, 3.7);
+var CapitolHill = new Store('Capitol Hill', 'capitolHill', 20, 38, 2.3);
+var Alki = new Store('Alki', 'alki', 2, 16, 4.6);
+
 
 allStores.push(firstAndPike);
-firstAndPike.calculateAvgCookies();
+allStores.push(seaTac);
+allStores.push(seattleCenter);
+allStores.push(CapitolHill);
+allStores.push(Alki);
 console.log(allStores);
+
+firstAndPike.calculateAvgCookies();
+seaTac.calculateAvgCookies();
+seattleCenter.calculateAvgCookies();
+Alki.calculateAvgCookies();
+CapitolHill.calculateAvgCookies();
 
 // gets parent table for creating elements within table
 var parentTable = document.getElementById('storeTable'); // Step 1: Get Parent Element
@@ -52,9 +68,7 @@ var tr = document.createElement('tr'); //create tr element
 thead.appendChild(tr);// Append tr to the thead
 
 //create th function with parameters of the text content, parent element, attribute and attribut value
-var th;  //set global th so "var =" is not in function
-
-//funciton to create th elements, text and attributes with values
+//funtion to create th elements, text and attributes with values
 function createth(thContent, parentElement, attributes, value){
   th = document.createElement('th');
   if (thContent){
@@ -66,8 +80,7 @@ function createth(thContent, parentElement, attributes, value){
   parentElement.appendChild(th);
 }
 
-createth('Cookie Forecast', tr, null, null); 
-//createth('Second Header',tr, null, null);
+createth('Cookie Forecast', tr, null, null);
 
 var tbody = document.createElement('tbody'); // create tbody element
 parentTable.appendChild(tbody);// append to table element
@@ -75,61 +88,39 @@ parentTable.appendChild(tbody);// append to table element
 tr = document.createElement('tr'); //create tr element
 tbody.appendChild(tr);// Append tr to the tbody
 
-createth(null,tr);
+createth(null,tr);// Create th for blank upper left cell
 
 // populate columns for all stores
 for (var i=0; i < HOURS.length; i++) {
-  createth(HOURS[i], tr);  
+  createth(HOURS[i], tr);
 }
 
+//Create elements with information about firstAndPike
 tr = document.createElement('tr'); //create tr element
 tbody.appendChild(tr);// Append tr to the tbody
 createth('1st and Pike', tr, 'scope', 'row');
 
 //for loop to create th elements including number of cookies by hour (This is by store.cookiesByHour so make into function)
-function cookiesByHour(storeLocation){
-  for (i=0; i< storeLocation.cookiesByHour.lenght; i++){
-    th = document.createElement('th');
-    th.textContent=storeLocation.cookiesByHour[i];
-    tr.appendChild(th);
-  }
-}
+//Creating data for first and Pike
 for(i=0; i < firstAndPike.cookiesByHour.length; i++){
   th = document.createElement('th');// create td
   th.textContent=firstAndPike.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr 
+  tr.appendChild(th);// add td to tr
 }
-
-//End of creating data for first and Pike 
 
 // Create tr for seaTac (Potential for creating a function as it is done for each store.)
 tr = document.createElement('tr'); //create tr element
 tbody.appendChild(tr);// Append tr to the tbody
 createth('seaTac', tr, 'scope', 'row');
 
-//variable to keep information about SeaTac airport
-
-var seaTac = new Store('SeaTac', 3, 24, 1.2);
-
-allStores.push(seaTac);
-seaTac.calculateAvgCookies();
-totalCookiesByStore = 0;
-
 // This is by store.cookiesByHour so make into function
 for(i=0; i < seaTac.cookiesByHour.length; i++){
   th = document.createElement('th');// create td
   th.textContent=seaTac.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr 
+  tr.appendChild(th);// add td to tr
 }
 
-//variable to keep information about Seattle Center
-
-var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
-
-allStores.push(seattleCenter);
-seattleCenter.calculateAvgCookies();
-totalCookiesByStore = 0;
-
+//Create Elements for Seattle Center.
 tr = document.createElement('tr'); //create tr element
 tbody.appendChild(tr);// Append tr to the tbody
 createth('Seattle Airport', tr, 'scope', 'row');
@@ -138,17 +129,10 @@ createth('Seattle Airport', tr, 'scope', 'row');
 for(i=0; i < seattleCenter.cookiesByHour.length; i++){
   th = document.createElement('th');// create td
   th.textContent=seattleCenter.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr 
+  tr.appendChild(th);// add td to tr
 }
 
-//variable to keep  information about Capitol Hill
-
-var CapitolHill = new Store('Capitol Hill', 20, 38, 2.3);
-
-allStores.push(CapitolHill);
-CapitolHill.calculateAvgCookies();
-totalCookiesByStore = 0;
-
+//Create Elements for Capitol Hill
 tr = document.createElement('tr'); //create tr element
 tbody.appendChild(tr);// Append tr to the tbody
 createth('Capitol Hill', tr, 'scope', 'row');
@@ -157,17 +141,10 @@ createth('Capitol Hill', tr, 'scope', 'row');
 for(i=0; i < CapitolHill.cookiesByHour.length; i++){
   th = document.createElement('th');// create td
   th.textContent=CapitolHill.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr 
+  tr.appendChild(th);// add td to tr
 }
 
-//variable to keep  information about Alki
-
-var Alki = new Store('Alki', 2, 16, 4.6);
-
-allStores.push(Alki);
-Alki.calculateAvgCookies();
-totalCookiesByStore = 0;
-
+//Create Elements for Alki
 tr = document.createElement('tr'); //create tr element
 tbody.appendChild(tr);// Append tr to the tbody
 createth('Alki', tr, 'scope', 'row');
@@ -176,9 +153,10 @@ createth('Alki', tr, 'scope', 'row');
 for(i=0; i < Alki.cookiesByHour.length; i++){
   th = document.createElement('th');// create td
   th.textContent=Alki.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr 
+  tr.appendChild(th);// add td to tr
 }
 
+//Code for calculating totals for firstAndPike
 var firstAndPikeTotal = 0;
 for( i = 0; i < firstAndPike.cookiesByHour.length; i++){
   firstAndPikeTotal = firstAndPikeTotal + firstAndPike.cookiesByHour[i];
@@ -188,4 +166,3 @@ console.log(firstAndPike.cookiesByHour);
 console.log(firstAndPikeTotal);
 
 // console.log(totalCookiesByStore);
-console.log(allStores);
