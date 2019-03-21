@@ -45,7 +45,7 @@ function createtr(area){
 //Function to populate the cookiesByHour for each store location
 function storeCookies(area){
   for(i=0; i < area.cookiesByHour.length; i++){
-    th = document.createElement('th');// create td
+    th = document.createElement('th');// create th
     th.textContent=area.cookiesByHour[i]; // add content
     tr.appendChild(th);// add td to tr
   }
@@ -79,6 +79,7 @@ var seaTac = new Store('SeaTac', 'seaTac', 3, 24, 1.2);
 var seattleCenter = new Store('Seattle Center', 'seattleCenter', 11, 38, 3.7);
 var CapitolHill = new Store('Capitol Hill', 'capitolHill', 20, 38, 2.3);
 var Alki = new Store('Alki', 'alki', 2, 16, 4.6);
+var Totals = new Store('Totals', 'Totals', 0, 0, 0, 0);
 
 allStores.push(firstAndPike);
 allStores.push(seaTac);
@@ -118,6 +119,9 @@ createth(null,tr);// Create th for blank upper left cell
 // populate columns for all stores
 for (var i=0; i < HOURS.length; i++) {
   createth(HOURS[i], tr);
+  if (i === 14){
+    createth('Daily Total', tr);
+  }
 }
 
 //Create tr elements with information about firstAndPike
@@ -140,13 +144,36 @@ storeCookies(CapitolHill);
 createtr('Alki');
 storeCookies(Alki);
 
+createtr('Totals');//Creates label for totals by hour
+
+
+// for(i=0; i <= firstAndPike.cookiesByHour.length; i++){
+//   hourTotal = hourtotal + Store
+//   th = document.createElement('th');// create td
+//   th.textContent=Need hour total[i]; // add content
+//   tr.appendChild(th);// add td to tr
+// }
+
 //Code for calculating totals for firstAndPike
 var firstAndPikeTotal = 0;
 for( i = 0; i < firstAndPike.cookiesByHour.length; i++){
   firstAndPikeTotal += firstAndPike.cookiesByHour[i];
 }
+console.log(Totals);
+//Code for calculating totals by hour
+for( i = 0; i < firstAndPike.cookiesByHour.length; i++){
+  var cookiesByHour = 0;
+  cookiesByHour += firstAndPike.cookiesByHour[i] +
+  seaTac.cookiesByHour[i] +
+  seattleCenter.cookiesByHour[i] +
+  CapitolHill.cookiesByHour[i] +
+  Alki.cookiesByHour[i];
+  console.log(cookiesByHour);
+  Totals.cookiesByHour.push(cookiesByHour);
+}
 
-console.log(firstAndPike.cookiesByHour);
-console.log(firstAndPikeTotal);
+
+console.log(Totals);
+storeCookies(Totals);
 
 // console.log(totalCookiesByStore);
