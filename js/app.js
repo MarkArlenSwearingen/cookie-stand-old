@@ -23,7 +23,7 @@ Store.prototype.calculateAvgCookies = function(){
 };
 
 
-//funtion to create th elements, text and attributes with values
+//function to create th elements, text and attributes with values
 function createth(thContent, parentElement, attributes, value){
   th = document.createElement('th');
   if (thContent){
@@ -40,6 +40,15 @@ function createtr(area){
   tr = document.createElement('tr'); //create tr element
   tbody.appendChild(tr);// Append tr to the tbody
   createth(area, tr, 'scope', 'row');
+}
+
+//Function to populate the cookiesByHour for each store location
+function storeCookies(area){
+  for(i=0; i < area.cookiesByHour.length; i++){
+    th = document.createElement('th');// create td
+    th.textContent=area.cookiesByHour[i]; // add content
+    tr.appendChild(th);// add td to tr
+  }
 }
 
 // --------------------------------
@@ -103,54 +112,23 @@ for (var i=0; i < HOURS.length; i++) {
 
 //Create tr elements with information about firstAndPike
 createtr('1st and Pike');
-
-//for loop to create th elements including number of cookies by hour (This is by store.cookiesByHour so make into function)
-//Creating data for first and Pike
-for(i=0; i < firstAndPike.cookiesByHour.length; i++){
-  th = document.createElement('th');// create td
-  th.textContent=firstAndPike.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr
-}
+storeCookies(firstAndPike);
 
 //Create tr elements with information about SeaTac
 createtr('SeaTac');
-
-// This is by store.cookiesByHour so make into function
-for(i=0; i < seaTac.cookiesByHour.length; i++){
-  th = document.createElement('th');// create td
-  th.textContent=seaTac.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr
-}
+storeCookies(seaTac);
 
 //Create tr elements with information about Seattle Center
 createtr('Seattle Center');
-
-// This is by store.cookiesByHour so make into function
-for(i=0; i < seattleCenter.cookiesByHour.length; i++){
-  th = document.createElement('th');// create td
-  th.textContent=seattleCenter.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr
-}
+storeCookies(seattleCenter);
 
 //Create tr elements with information about Capitol Hill
 createtr('Capitol Hill');
-
-// This is by store.cookiesByHour so make into function
-for(i=0; i < CapitolHill.cookiesByHour.length; i++){
-  th = document.createElement('th');// create td
-  th.textContent=CapitolHill.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr
-}
+storeCookies(CapitolHill);
 
 //Create tr elements with information about Alki
 createtr('Alki');
-
-// This is by store.cookiesByHour so make into function
-for(i=0; i < Alki.cookiesByHour.length; i++){
-  th = document.createElement('th');// create td
-  th.textContent=Alki.cookiesByHour[i]; // add content
-  tr.appendChild(th);// add td to tr
-}
+storeCookies(Alki);
 
 //Code for calculating totals for firstAndPike
 var firstAndPikeTotal = 0;
