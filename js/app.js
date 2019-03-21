@@ -49,6 +49,16 @@ function storeCookies(area){
     th.textContent=area.cookiesByHour[i]; // add content
     tr.appendChild(th);// add td to tr
   }
+  var areaTotal = 0;
+  //console.log(area);
+  for( i = 0; i < area.cookiesByHour.length; i++){
+    areaTotal = areaTotal + area.cookiesByHour[i];
+    if (i === firstAndPike.cookiesByHour.length - 1){
+      th = document.createElement('th');// create td
+      th.textContent=areaTotal; // add content
+      tr.appendChild(th);// add td to tr
+    }
+  }
 }
 
 // --------------------------------
@@ -133,7 +143,7 @@ storeCookies(Alki);
 //Code for calculating totals for firstAndPike
 var firstAndPikeTotal = 0;
 for( i = 0; i < firstAndPike.cookiesByHour.length; i++){
-  firstAndPikeTotal = firstAndPikeTotal + firstAndPike.cookiesByHour[i];
+  firstAndPikeTotal += firstAndPike.cookiesByHour[i];
 }
 
 console.log(firstAndPike.cookiesByHour);
