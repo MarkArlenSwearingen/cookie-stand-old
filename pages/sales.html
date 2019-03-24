@@ -11,7 +11,13 @@
   <body>
     <img id="salmon" src="../img/salmon.png">
     <a href="../index.html" >Home Page</a>
-    <h1 id="pikeStreet">1st and Pike</h1>
+    <h1 id="cookieForecast"> Cookies By Hour for each Store</h1>
+    <ul id="firstAndPike">First and Pike</ul>
+    <ul id="seaTac">SeaTac Airport</ul>
+    <ul id="seattleCenter">Seattle Center</ul>
+    <ul id="capitolHill">Capitol Hill</ul>
+    <ul id="alki">Alki</ul>
+    
 
 <!-- //In javascript, I will need an array with the hours for a store, the simulated number of cookies -->
 <!-- // based upon the average number of cookies and a random number generated the uses the -->
@@ -21,41 +27,40 @@
 <table id="storeTable">
   <!-- <thead>
     <tr>
-      <th>Header Cookie Forecast</th>
-      <th>Second header</th>
+      <th></th>
+      <th scope="col">6:00 am</th>
+      <th scope="col">7:00 am</th>
+      <th scope="col">8:00 am</th>
+      <th scope="col">9:00 am</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th></th>
-      <th scope="col">6:00 am</th>
-      <th scope="col">7:00 am</th>
-    </tr>
-    <tr >
       <th id="cookieForecast" scope="row">1st and Pike</th>
       <td>56</td>
       <td>33</td>
+      <td>56</td>
+      <td>33</td>
     </tr>
-    <tr id="cookieForecastSeatac">
-      <th scope="row">SeaTac</th>
+      <th id="cookieForecastSeatac" scope="row">SeaTac</th>
+      <td>56</td>
+      <td>44</td>
+       <td>56</td>
+      <td>44</td>
+    </tr>
+      <th id="cookieForecastSeattleCenter"scope="row">Seattle Airport</th>
       <td>56</td>
       <td>44</td>
     </tr>
-    <tr id="cookieForecastSeattleCenter">
-      <th scope="row">Seattle Airport</th>
+    <tr>
+      <th id="cookieForecastCapitolHill" scope="row">Capitol Hill</th>
       <td>56</td>
       <td>44</td>
     </tr>
-    <tr id="cookieForecastCapitolHill">
-        <th scope="row">Capitol Hill</th>
-        <td>56</td>
-        <td>44</td>
+      <th id="cookieForecastAlki" scope="row">Alki</th>
+      <td>56</td>
+      <td>44</td>
       </tr>
-      <tr id="cookieForecastAlki">
-        <th scope="row">Alki</th>
-        <td>56</td>
-        <td>44</td>
-        </tr>
     </tbody>
     <tfoot>
       <tr>
@@ -67,6 +72,9 @@
 
     <script src="../js/app.js"></script>
   </body>
+ 
+
+  </ul>
 </html>
 
    
