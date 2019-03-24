@@ -168,7 +168,7 @@ for( i = 0; i < firstAndPike.cookiesByHour.length; i++){
   seattleCenter.cookiesByHour[i] +
   CapitolHill.cookiesByHour[i] +
   Alki.cookiesByHour[i];
-  console.log(cookiesByHour);
+  // console.log(cookiesByHour);
   Totals.cookiesByHour.push(cookiesByHour);
 }
 
