@@ -27,6 +27,7 @@ Store.prototype.render = function() {
   th.textContent = this.location; //provide content
   tr.appendChild(th);//attach element to parent
   console.log('render function this.cookiesByHour ' + this.cookiesByHour );
+  hourlyTotalForAllLocations.push(this.cookiesByHour);
   
   for(i=0; i < HOURS.length; i++){
     var td = document.createElement('td');
@@ -35,6 +36,7 @@ Store.prototype.render = function() {
     if (i === HOURS.length-1){
       var td = document.createElement('td');
       var dailyLocationTotal = this.cookiesByStore[0];
+      grandTotal= grandTotal + dailyLocationTotal;
       td.textContent = dailyLocationTotal;
       tr.appendChild(td);
     }
@@ -92,10 +94,17 @@ var createTableFooter = function(){
   // Loop to create column labels
   for (i=0; i < HOURS.length; i++){
     th = document.createElement('th'); //create element
-    th.textContent = 'HT'; //provide content
+    console.log(cookiesByHour);
+    hourTotal = cookiesByHour[i];
+    th.textContent = hourTotal; //provide content
     console.log(th.textContent);
     th.setAttribute('scope', 'col'); //provide content
     tr.appendChild(th);//attach element to parent
+    if (i === HOURS.length -1){
+      th = document.createElement('th'); //create element
+      th.textContent = grandTotal; //provide content
+      tr.appendChild(th);//attach element to parent
+    }
   }
 };
 // --------------------------------
@@ -108,6 +117,7 @@ var cookiesByStore = 0;
 var hourlyTotalForAllLocations = [];
 var grandTotal= 0;
 var hourTotal = 0;
+var hourSum = [];
 var storeTable = document.getElementById('storeTable');
 var tbody = document.createElement('tbody');
 
@@ -132,6 +142,8 @@ seattleCenter.SimulatedNumberOfCookies();
 capitolHill.SimulatedNumberOfCookies();
 alki.SimulatedNumberOfCookies();
 
+
+createTableHeader();
 //Render table data
 firstAndPike.render();
 seaTac.render();
@@ -139,19 +151,33 @@ seattleCenter.render();
 capitolHill.render();
 alki.render();
 
-createTableHeader();
+
+for(i=1; i< HOURS.length + 2; i++){
+  if (i > 1 ){cookiesByHour.push(hourSum);
+  }
+  hourSum = 0;
+  console.log(cookiesByHour);
+  for (j=1; j < hourlyTotalForAllLocations.length + 1; j++){
+    hourTotal = document.getElementById("storeTable").rows[j].cells[i].innerHTML
+    hourSum = hourTotal * 1 + hourSum;
+  }
+}
+
 createTableFooter();
 
 
-// console.log(seaTac.cookiesByHour);
-// console.log(firstAndPike.cookiesByHour);
-// var cbh = seaTac.cookiesByHour[0];
-// var cbh = cbh + firstAndPike.cookiesByHour[0]
-// console.log(cbh);
-// var cbhTot = [];
-// cbhTot.push(cbh);
-// console.log(cbhTot);
-// var cbh = seaTac.cookiesByHour[1];
-// var cbh = cbh + firstAndPike.cookiesByHour[1];
-// cbhTot.push(cbh);
-// console.log(cbhTot);
+// console.log(hourlyTotalForAllLocations.length + ' length of hour array');
+// for (i=0; i < hourlyTotalForAllLocations.length; i++){
+//   var a = hourlyTotalForAllLocations[i];
+//   for (j=0; j < HOURS.length; j++){
+//     var c = a[j];
+//   }
+// }
+// console.log(hourlyTotalForAllLocations);
+// var hourSum = 0;
+
+
+// var hourTotal = document.getElementById("storeTable").rows[1].cells[3].innerHTML
+
+// console.log(hourTotal);
+
