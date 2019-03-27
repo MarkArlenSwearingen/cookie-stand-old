@@ -196,4 +196,21 @@ console.log(a);
 storeForm.addEventListener('submit', addStoreEventHandler);
 
 console.log(allStores);
+var sumEachHour = 0;
+var footerHours = [];
+
+for (i=0; i < HOURS.length + 1; i++){
+  if (i !== 0){footerHours.push(sumEachHour)
+  };
+  console.log(footerHours);
+  sumEachHour = 0;
+  for(j=0; j<allStores.length; j++){
+    var getEachhour = allStores[j].cookiesByHour[i];
+    console.log(getEachhour);
+    sumEachHour = sumEachHour + getEachhour;
+    console.log(sumEachHour);
+    
+  } 
+}
+
 
