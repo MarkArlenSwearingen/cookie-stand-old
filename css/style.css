@@ -77,3 +77,13 @@ body {
   color: rosybrown;
 }
 
+section {
+  font-family:   Georgia, Times, sans-serif;
+  color: black;
+  font-size: 25px;
+}
+
+button {
+  font-size: 40px;
+  margin: 15px;
+}

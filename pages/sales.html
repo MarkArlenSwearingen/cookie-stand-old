@@ -19,22 +19,32 @@
     <section>
       <form id="addStoreForm">
         <fieldset>
-          <legend>Store Information</legend>
+          <legend>New Store Information</legend>
           <label>Location</label>
-          <input name="location" type="text" required/>
+          <input name="location" type="text" required list="newstores"/>
+          <datalist id="newstores">
+            <option>Bend at Hwy 20</option>
+            <option>South Bend</option>
+            <option>Redmond</option>
+            <option>Madras</option>
+            <option>La Pine</option>
+          </datalist>
           <label>Store Name (without spaces)</label>
-          <input name="storeName" type="text" />
+          <input name="storeName" type="text" list="newstorenames"/>
+          <datalist id="newstorenames">
+            <option>bendathwy20</option>
+            <option>southbend</option>
+            <option>redmond</option>
+            <option>madras</option>
+            <option>lapine</option>
+          </datalist>
           <label>minCustomer</label>
           <input name="minCustomer" type="number" min="1" max="100" required/>
           <label>maxCustomer</label> 
           <input name="maxCustomer" type="number" min="1" max="1000" required/>
           <label>avgCookies</label> 
-          <input name="avgCookies" type="number" min="0" max="50" required step=".1"/>
+          <input name="avgCookies" type="number" min="1" max="50" required step=".1"/>
         </fieldset>
-        <button type="submit">Submit</button>
-        <button type="submit">Submit</button>
-        <button type="submit">Submit</button>
-        <button type="submit">Submit</button>
         <button type="submit">Submit</button>
       </form>
     </section>
