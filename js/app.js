@@ -195,4 +195,5 @@ console.log(a);
 
 storeForm.addEventListener('submit', addStoreEventHandler);
 
+console.log(allStores);
 

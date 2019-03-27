@@ -21,15 +21,15 @@
         <fieldset>
           <legend>Store Information</legend>
           <label>Location</label>
-          <input name="location" type="text" />
+          <input name="location" type="text" required/>
           <label>Store Name (without spaces)</label>
           <input name="storeName" type="text" />
           <label>minCustomer</label>
-          <input name="minCustomer" type="number" min="1" max="100"/>
+          <input name="minCustomer" type="number" min="1" max="100" required/>
           <label>maxCustomer</label> 
-          <input name="maxCustomer" type="number" min="1" max="1000"/>
+          <input name="maxCustomer" type="number" min="1" max="1000" required/>
           <label>avgCookies</label> 
-          <input name="avgCookies" type="number" min="0" max="50"/>
+          <input name="avgCookies" type="number" min="0" max="50" required step=".1"/>
         </fieldset>
         <button type="submit">Submit</button>
         <button type="submit">Submit</button>
