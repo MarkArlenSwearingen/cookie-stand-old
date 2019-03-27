@@ -2,9 +2,9 @@
 // --------------------------------
 // Define all global functions to be used in script
 // --------------------------------
-function Store(location, store, minCustomer, maxCustomer, avgCookies, cookiesByHour, cookiesByStore){
+function Store(location, storeName, minCustomer, maxCustomer, avgCookies, cookiesByHour, cookiesByStore){
   this.location = location;
-  this.store = store;
+  this.storeName = storeName;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.avgCookies = avgCookies;
@@ -13,12 +13,13 @@ function Store(location, store, minCustomer, maxCustomer, avgCookies, cookiesByH
   this.randomNumberOfCustomerPerHour = function(){
     return Math.ceil((Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer));
   };
+  allStores.push(this);//Use prior logic based on allStores to create table footer
 }
 
 Store.prototype.randomNumberOfCustomerPerHour = function(){
 };
 
-Store.prototype.render = function() {
+Store.prototype.render = function() {//renderStore;??? then use this code/function for rendering the Store.
   var tr = document.createElement('tr'); //create element tr for each store under body
   tbody.appendChild(tr);//attach element to parent
   var th = document.createElement('th'); //create element
@@ -121,16 +122,20 @@ var createTableFooter = function(){
 var HOURS = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 var totalCookiesByStore = 0;
 var cookiesByHour = [];
+var cookiesByStore = [];
 var hourlyTotalForAllLocations = [];
 var grandTotal= 0;
 var hourTotal = 0;
 var hourSum = [];
 var storeTable = document.getElementById('storeTable');
 var tbody = document.createElement('tbody');
-
+var allStores = [];
 // --------------------------------
 // Run script
 // --------------------------------
+// var storeElement = document.getElementById('storeTable');
+// console.log(storeElement);
+
 storeTable.appendChild(tbody);//attach tbody element to parent table element to prepare DOM for rendering
 
 // Objects to keep information by store
@@ -158,3 +163,36 @@ alki.render();
 
 calculateHourlyTotals();
 createTableFooter();
+
+// --------------------------------
+// Event Handlers
+// --------------------------------
+
+var storeForm = document.getElementById('addStoreForm');
+
+var addStoreEventHandler = function(event){
+  event.preventDefault();
+  console.log(event);
+  console.log('hello');
+
+  var target = event.target;
+
+  var location = target.location.value;
+  var storeName = target.storeName.value;
+  var minCustomer = target.minCustomer.value;
+  var maxCustomer = target.maxCustomer.value;
+  var avgCookies = target.avgCookies.value;
+
+  target.reset();
+
+  var newStore = new Store (location, storeName, minCustomer, maxCustomer, avgCookies, cookiesByHour, cookiesByStore);
+  newStore.render(document.getElementById('storeTable'));
+
+};
+
+var a = seaTac.constructor;
+console.log(a);
+
+storeForm.addEventListener('submit', addStoreEventHandler);
+
+
