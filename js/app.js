@@ -91,12 +91,12 @@ var createTableHeader = function(){
 // };
 // Calculate Hourly Totals
 var calculateHourlyTotals = function(){
-  for (i=0; i < HOURS.length + 1; i++){
+  for (var i=0; i < HOURS.length + 1; i++){
     if (i !== 0){footerHours.push(sumEachHour);
     }
     //console.log(footerHours);
     sumEachHour = 0;
-    for(j=0; j<allStores.length; j++){
+    for(var j=0; j<allStores.length; j++){
       var getEachhour = allStores[j].cookiesByHour[i];
       console.log(getEachhour);
       sumEachHour = sumEachHour + getEachhour;
@@ -118,14 +118,15 @@ var createTableFooter = function(){
   var th = document.createElement('th'); //create element
   th.textContent = ('Totals'); //provide content//provide content
   tr.appendChild(th);//attach element to parent
-  // Loop to create column labels
-  for (i=0; i < HOURS.length; i++){
+  // Loop to create footer totals
+  for (var i=0; i < HOURS.length; i++){
     th = document.createElement('th'); //create element
     hourTotal = footerHours[i];
     th.textContent = hourTotal; //provide content
     th.setAttribute('scope', 'col'); //provide content
     tr.appendChild(th);//attach element to parent
-    if (i === HOURS.length -1){
+    console.log(footerHours);
+    if (i === HOURS.length-1){
       th = document.createElement('th'); //create element
       th.textContent = grandTotal; //provide content
       tr.appendChild(th);//attach element to parent
@@ -214,17 +215,17 @@ storeForm.addEventListener('submit', addStoreEventHandler);
 //console.log(allStores);
 
 
-for (i=0; i < HOURS.length + 1; i++){
-  if (i !== 0){footerHours.push(sumEachHour)
-  };
-  //console.log(footerHours);
-  sumEachHour = 0;
-  for(j=0; j<allStores.length; j++){
-    var getEachhour = allStores[j].cookiesByHour[i];
-    //console.log(getEachhour);
-    sumEachHour = sumEachHour + getEachhour;
-    //console.log(sumEachHour);
-  } 
-}
+// for (var i=0; i < HOURS.length + 1; i++){
+//   if (i !== 0){footerHours.push(sumEachHour)
+//   };
+//   //console.log(footerHours);
+//   sumEachHour = 0;
+//   for(var j=0; j<allStores.length; j++){
+//     var getEachhour = allStores[j].cookiesByHour[i];
+//     //console.log(getEachhour);
+//     sumEachHour = sumEachHour + getEachhour;
+//     //console.log(sumEachHour);
+//   } 
+// }
 
 
