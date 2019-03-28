@@ -122,7 +122,7 @@ var createTableFooter = function(){
   storeTable.appendChild(tfoot);//attach element to parent
   //Create tr for tfoot
   var tr = document.createElement('tr'); //create element
-  tr.setAttribute("ID", "footertr")//provide content//provide content
+  tr.setAttribute("ID", "footertr");//provide content//provide content
   tfoot.appendChild(tr);//attach element to parent
   //create th for Hourly Totals cell
   var th = document.createElement('th'); //create element
@@ -185,6 +185,7 @@ for (var i = 0; i < allStores.length; i ++){
 // seattleCenter.SimulatedNumberOfCookies();
 // capitolHill.SimulatedNumberOfCookies();
 // alki.SimulatedNumberOfCookies();
+// redmond.simulatedNumberOfCookies();
 
 
 createTableHeader();
@@ -222,20 +223,21 @@ var addStoreEventHandler = function(event){
   target.reset();
   console.log(allStores);
   storeName = new Store (location, storeName, minCustomer, maxCustomer, avgCookies, cookiesByHour, cookiesByStore);
-//   // storeName.render(document.getElementById('storeTable'));
-// console.log(allStores);// by here that arrary was already established with the number of cookies.
-// // storeName.SimulatedNumberOfCookies();
-// // storeName.randomNumberOfCustomerPerHour();
-// //Calculate Hourly Totals
+  storeName.render(document.getElementById('storeTable'));
+  // console.log(allStores);// by here that arrary was already established with the number of cookies.
+  // storeName.simulatedNumberOfCookies();
+  // storeName.randomNumberOfCustomerPerHour();
+
 };
 
 storeForm.addEventListener('submit', addStoreEventHandler);
 // calculateFooterTotals();
 console.log(allStores);
+//Calculate Hourly Totals
 var calculateHourlyTotals = function(){
   for (var i=0; i < HOURS.length + 1; i++){
-    console.log(HOURS);
-    console.log(i);
+    // console.log(HOURS);
+    // console.log(i);
     if (i !== 0){console.log(sumEachHour);
       var tr = document.getElementById('footertr');
       var th = document.createElement('th'); //create element
@@ -243,32 +245,35 @@ var calculateHourlyTotals = function(){
       th.textContent = sumEachHour; //provide content
       th.setAttribute('scope', 'col'); //provide content
       tr.appendChild(th);//attach element to parent
+      if (i === HOURS.length ){
+        th = document.createElement('th'); //create element
+        th.textContent = grandTotal; //provide content
+        tr.appendChild(th);//attach element to parent
+      }
     }
-    if (i === HOURS.length ){
-      th = document.createElement('th'); //create element
-      th.textContent = grandTotal; //provide content
-      tr.appendChild(th);//attach element to parent
-    }
+    sumEachHour = 0;
+    for(var j=0; j<allStores.length; j++){
+      var getEachhour = allStores[j].cookiesByHour[i];
+      sumEachHour = sumEachHour + getEachhour;}
   }
-  sumEachHour = 0;
-  for(var j=0; j<allStores.length; j++){
-    var getEachhour = allStores[j].cookiesByHour[i];
-    sumEachHour = sumEachHour + getEachhour;}
 };
 calculateHourlyTotals();
+
+
 // Loop to create footer totals
-  // for (var i=0; i < HOURS.length; i++){
-  //   th = document.createElement('th'); //create element
-  //   hourTotal = footerHours[i];
-  //   th.textContent = hourTotal; //provide content
-  //   th.setAttribute('scope', 'col'); //provide content
-  //   tr.appendChild(th);//attach element to parent
-  //   // console.log(footerHours);
-  //   if (i === HOURS.length-1){
-  //     th = document.createElement('th'); //create element
-  //     th.textContent = grandTotal; //provide content
-  //     tr.appendChild(th);//attach element to parent
-  //   }
-  // }
+
+// for (var i=0; i < HOURS.length; i++){
+//   th = document.createElement('th'); //create element
+//   hourTotal = footerHours[i];
+//   th.textContent = hourTotal; //provide content
+//   th.setAttribute('scope', 'col'); //provide content
+//   tr.appendChild(th);//attach element to parent
+//   // console.log(footerHours);
+//   if (i === HOURS.length-1){
+//     th = document.createElement('th'); //create element
+//     th.textContent = grandTotal; //provide content
+//     tr.appendChild(th);//attach element to parent
+//   }
+// }
 
 
