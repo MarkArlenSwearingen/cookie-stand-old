@@ -28,7 +28,7 @@ Store.prototype.render = function() {//renderStore;??? then use this code/functi
   tr.appendChild(th);//attach element to parent
   hourlyTotalForAllLocations.push(this.cookiesByHour);
   
-  for(i=0; i < HOURS.length; i++){
+  for(var i=0; i < HOURS.length; i++){
     var td = document.createElement('td');
     td.textContent = this.cookiesByHour[i];
     tr.appendChild(td);
@@ -43,7 +43,7 @@ Store.prototype.render = function() {//renderStore;??? then use this code/functi
 };
 
 Store.prototype.SimulatedNumberOfCookies = function (){
-  for (i = 0; i < HOURS.length; i++){
+  for (var i = 0; i < HOURS.length; i++){
     var cookiesPerHour = Math.ceil(this.avgCookies) * (this.randomNumberOfCustomerPerHour());
     this.cookiesByHour.push(cookiesPerHour);
     totalCookiesByStore = totalCookiesByStore + cookiesPerHour;
@@ -77,34 +77,23 @@ var createTableHeader = function(){
   }
 };
 
-//Old Calculate Hourly Totals
-// var calculateHourlyTotals = function(){
-//   for(i=1; i< HOURS.length + 2; i++){
-//     if (i > 1 ){cookiesByHour.push(hourSum);
-//     }
-//     hourSum = 0;
-//     for (j=1; j < hourlyTotalForAllLocations.length + 1; j++){
-//       hourTotal = document.getElementById("storeTable").rows[j].cells[i].innerHTML
-//       hourSum = hourTotal * 1 + hourSum;
-//     }
-//   }
-// };
-// Calculate Hourly Totals
+//Calculate Hourly Totals
 var calculateHourlyTotals = function(){
   for (var i=0; i < HOURS.length + 1; i++){
+    console.log(sumEachHour);
+    console.log(footerHours);
     if (i !== 0){footerHours.push(sumEachHour);
     }
     //console.log(footerHours);
     sumEachHour = 0;
     for(var j=0; j<allStores.length; j++){
       var getEachhour = allStores[j].cookiesByHour[i];
-      console.log(getEachhour);
+      // console.log(getEachhour);
       sumEachHour = sumEachHour + getEachhour;
-      console.log(sumEachHour);
+      // console.log(sumEachHour);
     }
   }
 };
-
 //Table footer function
 var createTableFooter = function(){
   //<table id="storeTable">
@@ -125,7 +114,7 @@ var createTableFooter = function(){
     th.textContent = hourTotal; //provide content
     th.setAttribute('scope', 'col'); //provide content
     tr.appendChild(th);//attach element to parent
-    console.log(footerHours);
+    // console.log(footerHours);
     if (i === HOURS.length-1){
       th = document.createElement('th'); //create element
       th.textContent = grandTotal; //provide content
@@ -133,7 +122,6 @@ var createTableFooter = function(){
     }
   }
 };
-
 // --------------------------------
 // Define all data to be used in script
 // --------------------------------
@@ -149,7 +137,7 @@ var storeTable = document.getElementById('storeTable');
 var tbody = document.createElement('tbody');
 var allStores = [];
 var sumEachHour = 0;
-var footerHours = [];
+var footerHours= [];
 // --------------------------------
 // Run script
 // --------------------------------
@@ -198,34 +186,38 @@ var addStoreEventHandler = function(event){
   var target = event.target;
 
   var location = target.location.value;
-  // var storeName = target.storeName.value;
+  var storeName = target.storeName.value;
   var minCustomer = target.minCustomer.value;
   var maxCustomer = target.maxCustomer.value;
   var avgCookies = target.avgCookies.value;
 
   target.reset();
 
-  var newStore = new Store (location, 'newstoreName', minCustomer, maxCustomer, avgCookies, cookiesByHour, cookiesByStore);
+  var newStore = new Store (location, storeName, minCustomer, maxCustomer, avgCookies, cookiesByHour, cookiesByStore);
   newStore.render(document.getElementById('storeTable'));
 
 };
 
+var a = seaTac.constructor;
+// console.log(a);
+
 storeForm.addEventListener('submit', addStoreEventHandler);
 
-//console.log(allStores);
+// console.log(allStores);
+var sumEachHour = 0;
+var footerHours = [];
 
-
-// for (var i=0; i < HOURS.length + 1; i++){
-//   if (i !== 0){footerHours.push(sumEachHour)
-//   };
-//   //console.log(footerHours);
-//   sumEachHour = 0;
-//   for(var j=0; j<allStores.length; j++){
-//     var getEachhour = allStores[j].cookiesByHour[i];
-//     //console.log(getEachhour);
-//     sumEachHour = sumEachHour + getEachhour;
-//     //console.log(sumEachHour);
-//   } 
-// }
+for (var i=0; i < HOURS.length + 1; i++){
+  if (i !== 0){footerHours.push(sumEachHour)
+  };
+  //console.log(footerHours);
+  sumEachHour = 0;
+  for(var j=0; j<allStores.length; j++){
+    var getEachhour = allStores[j].cookiesByHour[i];
+    //console.log(getEachhour);
+    sumEachHour = sumEachHour + getEachhour;
+    //console.log(sumEachHour);
+  } 
+}
 
 
