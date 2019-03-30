@@ -139,20 +139,11 @@ var createTableFooter = function(){
 var HOURS = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 var cookiesByStore = [];
 var tr = null;
-var totalCookiesPerStore = 0;
-var totalCookiesPerHour = 0;
 var totalCookiesByStore = [];
 var cookiesByHour = [];
 var totalCookiesByHour = [];
-var removeFooter;
-var hourlyTotalForAllLocations = [];
 var grandTotal= 0;
-var hourTotal = 0;
-var hourSum = [];
-var storeTable = document.getElementById('storeTable');
-var tbody = document.createElement('tbody');
 var simulatedStores = [];
-var counterForStoresRendered = 0
 var dailyLocationTotal = 0;
 // --------------------------------
 // Run script
