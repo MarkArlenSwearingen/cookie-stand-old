@@ -11,72 +11,52 @@
   <body>
     <img id="salmon" src="../img/salmon.png">
     <a href="../index.html" >Home Page</a>
-    <h1 id="cookieForecast"> Cookies By Hour for each Store</h1>
-    <!-- 
-    <ul id="firstAndPike">First and Pike</ul>
-    <ul id="seaTac">SeaTac Airport</ul>
-    <ul id="seattleCenter">Seattle Center</ul>
-    <ul id="capitolHill">Capitol Hill</ul>
-    <ul id="alki">Alki</ul> -->
-    
+    <h1 id="cookieForecast"> Cookies By Hour for each Store</h1>  
 
-<!-- //In javascript, I will need an array with the hours for a store, the simulated number of cookies -->
-<!-- // based upon the average number of cookies and a random number generated the uses the -->
-<!-- // max and min for a range. (max-min) * random number + min is the calculation. -->
-<!-- // a for loop might be able to do the 4 required steps of -->
-<!-- // 1.Get parent, 2. Create Element, 3. Give element content, 4. Append to document. -->
-<table id="storeTable">
-  <!-- <thead>
-    <tr>
-      <th>empty th for cell</th>
-      <th scope="col">6:00 am</th>
-      <th scope="col">7:00 am</th>
-      <th scope="col">8:00 am</th>
-      <th scope="col">9:00 am</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="cookieForecast" scope="row">1st and Pike</th>
-      <td>56</td>
-      <td>33</td>
-      <td>56</td>
-      <td>33</td>
-    </tr>
-      <th id="cookieForecastSeatac" scope="row">SeaTac</th>
-      <td>56</td>
-      <td>44</td>
-       <td>56</td>
-      <td>44</td>
-    </tr>
-      <th id="cookieForecastSeattleCenter"scope="row">Seattle Airport</th>
-      <td>56</td>
-      <td>44</td>
-    </tr>
-    <tr>
-      <th id="cookieForecastCapitolHill" scope="row">Capitol Hill</th>
-      <td>56</td>
-      <td>44</td>
-    </tr>
-      <th id="cookieForecastAlki" scope="row">Alki</th>
-      <td>56</td>
-      <td>44</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th>Footer of Cookie Forecast</th>
-        <th>6am footer</th>
-        <th>7am footer</th>
-      </tr>
-    </tfoot> -->
-</table>
+    <table id="storeTable">
+      <thead id ="thead">
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+      <tfoot id="tfoot">
+      </tfoot>
+
+    </table>
+    <section>
+      <form id="addStoreForm">
+        <fieldset>
+          <legend>New Store Information</legend>
+          <label>Location</label>
+          <input name="location" type="text" required list="newstores"/>
+          <datalist id="newstores">
+            <option>Bend at Hwy 20</option>
+            <option>South Bend</option>
+            <option>Redmond</option>
+            <option>Madras</option>
+            <option>La Pine</option>
+          </datalist>
+          <label>Store Name (without spaces)</label>
+          <input name="storeName" type="text" list="newstorenames"/>
+          <datalist id="newstorenames">
+            <option>bendathwy20</option>
+            <option>southbend</option>
+            <option>redmond</option>
+            <option>madras</option>
+            <option>lapine</option>
+          </datalist>
+          <label>minCustomer</label>
+          <input name="minCustomer" type="number" min="1" max="100" required/>
+          <label>maxCustomer</label> 
+          <input name="maxCustomer" type="number" min="1" max="1000" required/>
+          <label>avgCookies</label> 
+          <input name="avgCookies" type="number" min="1" max="50" required step=".1"/>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
 
     <script src="../js/app.js"></script>
   </body>
- 
-
-  </ul>
 </html>
 
    
