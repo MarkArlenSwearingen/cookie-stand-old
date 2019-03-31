@@ -1,15 +1,47 @@
 img {
-  width: 50%;
+  width: 75%;
   height: auto;
   border: 5px;
 }
 
+body {
+  font-size: 100%;
+
+}
+salmon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 200px;
+}
+
+section {
+  width: 3000px;
+  height: 600px;
+}
+
+.nav {
+  margin-left: 30px;
+  text-align: right;
+  display: inline;
+  font-size: 30px;
+  padding: 25px;
+}
+
 h1 {
-  font-size: 60px;
-  margin-left: 60px;
+  font-size: 80px;
+  margin-left: 20px;
+  color: rgb(218, 121, 42);
+   color: B86642;
+  /* float: left; */
+}
+.highlight {
+  font-size: 40px;
+  margin-left: 260px;
   color: rgb(218, 121, 42);
   color: rgb(155,73,45);
   color: B86642;
+  /* float: left; */
 }
 
 
@@ -18,6 +50,11 @@ h2, h3, h4 {
   margin-left: 60px;
   margin-top: 30px;
   color: rgb(15, 61, 30);
+  clear: left;
+}
+
+.caption {
+  font-size: 100%;
 }
 
  p {
@@ -91,4 +128,14 @@ button {
 input {
   font-size: 55px;
   margin: 5px;
+}
+
+.column1of3, .column2of3, .column3of3 {
+  width: 30%;
+  margin: 20 px;
+  float: left;
+}
+
+ul, li {
+  display: inline;
 }
