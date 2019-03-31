@@ -1,34 +1,74 @@
 img {
-  width: 50%;
+  width: 55%;
   height: auto;
   border: 5px;
 }
 
+body {
+  font-size: 50%;
+
+}
+salmon {
+  position: absolute;
+  width: 50%;
+  top: 30px;
+  left: 30px;
+  width: 200px;
+}
+
+
+
+.nav {
+  margin-left: 30px;
+  text-align: right;
+  display: inline;
+  font-size: 20px;
+  padding: 5px;
+}
+
 h1 {
-  font-size: 60px;
-  margin-left: 60px;
+  font-size: 40px;
+  margin-left: 20px;
+  color: rgb(218, 121, 42);
+   color: B86642;
+  /* float: left; */
+}
+.highlight {
+  font-size: 20px;
+  margin-left: 260px;
   color: rgb(218, 121, 42);
   color: rgb(155,73,45);
   color: B86642;
+  /* float: left; */
 }
 
 
 h2, h3, h4 {
-  font-size: 50px;
+  font-size: 25px;
   margin-left: 60px;
   margin-top: 30px;
   color: rgb(15, 61, 30);
+  clear: left;
+}
+h4, h4 p, h4 a {
+  width: 1020px;
+  background-color: burlywood;
+}
+
+.caption {
+  font-size: 100%;
 }
 
  p {
   margin: 10px;
   margin-left: 75px;
-  font-size: 150%;
+  font-size: 50%;
   
 }
 
-h1 p {
+.h1p {
   color: rgb(15, 61, 30);
+  font-size: 20px;
 }
 
 tr, th, td {
@@ -45,10 +85,10 @@ font-family: Margarine;
 }
 
 li {
-  font-size: 25px;
+  font-size: 15px;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   color: black;
-  margin-left: 25px;
+  margin-left: 5px;
   margin-top: 10px;
   list-style-type: circle;
   outline: solid 2px black;
@@ -56,9 +96,10 @@ li {
   
 }
 li:last-of-type {
-  background-color: rosybrown;
-  font-size: 50px;
-  margin-top: 20px;
+  background-color: rgb(218, 121, 42);
+  font-size: 25px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 ul {
@@ -91,4 +132,130 @@ button {
 input {
   font-size: 55px;
   margin: 5px;
+}
+
+.column1of3, .column2of3, .column3of3 {
+  width: 30%;
+  margin: 5px;
+  float: left;
+}
+
+ul, li {
+  display: inline;
+}
+
+.events  {
+  display: block;
+  font-size: 30px;
+  margin-left: 200px;
+  margin-top: 30px;
+  color: rgb(15, 61, 30);
+  clear: left;
+}
+
+.mugs {
+  width: 40%;
+  /* float: left; */
+}
+
+.merchandise {
+  width: 30%;
+  /* float: left; */
+  clear: left;
+}
+
+a {
+  font-size: 50%;
+}
+ .home{
+   font-size: 150%;
+   display: block;
+ }
+
+.column1of3, .column2of3, .column3of3 {
+background-color:  rgb(218, 121, 42);
+ }
+
+ .location{
+   width: 1020px;
+  background-color:  rgb(218, 121, 42);
+   display: block;
+   font-size: 1em;
+ }
+
+ .address {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: .6em;
+ }
+
+ 
+ 
+
+
+ .aboutUsButton {
+  color: black;
+  padding: 5px;
+  border: none;
+  font-size: 10px;
+ }
+ .dropDown {
+   position: relative;
+   display: inline-block;
+ }
+ 
+ .aboutUsContent {
+  display: none;
+  position: absolute;
+  color: black;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.aboutUsContent a {
+  color: black;
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.aboutUsContent:hover{
+  color: rgb(155,73,45);
+}
+
+.aboutUsButton:hover {
+  color: white;
+  padding: 5px;
+ }
+
+.aboutUsButtona:hover {
+  background-color: rgb(155,73,45);
+}
+
+
+ .dropDown:hover .aboutUsContent {
+  display: block;
+ }
+
+ .dropDown:hover .aboutUsButton {
+   background-color: black;
+ }
+
+ .orderform {
+   position: fixed;
+   top: 100px;
+   left: 500px;
+   width: 200px;
+ }
+
+ #menubar {
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   background-color: aqua;
+  
+ }
+
+.events:hover {
+  background-color: rgb(218, 121, 42);
 }
