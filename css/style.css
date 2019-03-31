@@ -97,8 +97,9 @@ li {
 }
 li:last-of-type {
   background-color: rgb(218, 121, 42);
-  font-size: 50px;
-  margin-top: 20px;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 ul {
@@ -192,7 +193,7 @@ background-color:  rgb(218, 121, 42);
 
 
  .aboutUsButton {
-  color: white;
+  color: black;
   padding: 5px;
   border: none;
   font-size: 10px;
@@ -219,7 +220,7 @@ background-color:  rgb(218, 121, 42);
 }
 
 .aboutUsContent:hover{
-  color: agua;
+  color: rgb(155,73,45);
 }
 
 .aboutUsButton:hover {
@@ -228,7 +229,7 @@ background-color:  rgb(218, 121, 42);
  }
 
 .aboutUsButtona:hover {
-  background-color: aqua;
+  background-color: rgb(155,73,45);
 }
 
 
@@ -239,3 +240,22 @@ background-color:  rgb(218, 121, 42);
  .dropDown:hover .aboutUsButton {
    background-color: black;
  }
+
+ .orderform {
+   position: fixed;
+   top: 100px;
+   left: 500px;
+   width: 200px;
+ }
+
+ #menubar {
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   background-color: aqua;
+  
+ }
+
+.events:hover {
+  background-color: rgb(218, 121, 42);
+}
