@@ -50,8 +50,6 @@ salmon {
   width: 800px;
 }
 
-
-
 h1 {
   font-size: 40px;
   margin-left: 20px;
@@ -98,8 +96,10 @@ h4, h4 p, h4 a {
 } */
 
 tr, th, td {
+  color: black;
   font-size: 30px;
-  padding-left: 3px;
+  padding: 5px;
+  font-size: 150%;
    outline: solid 3px black; 
 }
 .store {
@@ -261,12 +261,13 @@ background-color:  rgb(218, 121, 42);
 
  .orderform {
    position: fixed;
-   top: 100px;
-   left: 500px;
+   float: right;
+    top: 0px;
+   left: 650px; 
    width: 200px;
  }
 .events:hover {
-  background-color: rgb(218, 121, 42);
+  background-color:#563838;
 }
 footer {
   display: block;
@@ -274,4 +275,10 @@ footer {
   border-right: 50px;
   border-bottom: 20px;
   font-size: 40px;
+}
+
+.about {
+  margin-top: 50px;
+  width: 800px;
+  color: #563838;
 }

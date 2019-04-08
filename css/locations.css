@@ -1,0 +1,107 @@
+/* //https://visme.co/blog/color-combinations/ */
+
+#container {
+  
+  background-color: #6A8A82;
+  width: 1020px;
+}
+
+#navigation {
+  width: 960px;
+  height: 120px;
+}
+
+header {
+  text-align: center;
+  color: #282726;
+  background-color: #A7414A;
+  width: 960px;
+  height: 90px;
+  border-radius: 50px;
+}
+
+h1  {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h2  {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h3 h4 {
+  margin-top: 0px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p {
+  text-align: center;
+  font-family:  Helvetica, Arial, sans-serif
+}
+
+section {
+  margin: 15px;
+  background-color: #282726;
+  color: #A37C27;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50px;
+  height: 200px;
+  width: 450px; 
+}
+footer {
+  width: 960px;
+  height: 120px;
+}
+
+.store {
+  margin-top: 0px;
+  width: 450px;
+  height: 40px;
+}
+.address {
+  margin-left: 15px;
+  margin-top: 10px;
+  float: left;
+  width: 200px;
+  height: 100px;
+}
+.hours {
+  margin-top: 10px;
+  font-family:  Helvetica, Arial, sans-serif;
+  float: left;
+  width: 200px; 
+  height: 130px;
+  text-align: left;
+}
+
+.navigation {
+  display: inline;
+  background-color: #563838;
+  color: #282726;
+}
+.navigation-inverse {
+  display: inline;
+}
+
+.navbar:hover {
+  overflow: hidden;
+  display: inline;
+  background-color: #A7414A;
+  color: #282726;
+}
+
+.navbar {
+  overflow: hidden;
+  font-size: 100%;
+  padding: 10px;
+  display: inline;
+  color: #282726;
+  background-color: #6A8A82;
+}
+
+ul:hover {
+  color: #6A8A82;
+  background-color: #6A8A82;
+}
