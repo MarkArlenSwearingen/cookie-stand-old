@@ -1,13 +1,11 @@
 img {
   width: 55%;
   height: auto;
-  border: 5px;
 }
 
 header {
   background-color: #563838;
   color: #282726;
-  border: 4px dotted salmon;
 
 }
 
@@ -20,8 +18,6 @@ body {
 
 #navigation {
   display: inline;
-  border: 2px dotted salmon;
-
 }
 .nav {
   font-size: 100%;
@@ -121,7 +117,6 @@ li {
   color: black;
   margin-left: 5px;
   margin-top: 5px;
-  outline: solid 2px black;
   background-color: ;
 } 
 
@@ -135,7 +130,7 @@ li {
 } 
 
 body {
-  background-color: rgb(146, 198, 218);
+  background-color: #6A8A82;
   font-family:   Georgia, Times, sans-serif;
   color: rosybrown;
  } 
@@ -157,6 +152,7 @@ input {
 }
 
 .column1of3, .column2of3, .column3of3 {
+  background-color: #563838;
   width: 30%;
   margin: 5px;
   float: left;
@@ -199,9 +195,9 @@ a:hover {
    display: block;
  }
 
-.column1of3, .column2of3, .column3of3 {
+/* .column1of3, .column2of3, .column3of3 {
 background-color:  rgb(218, 121, 42);
- }
+ } */
 
  .location{
    width: 1020px;
@@ -273,10 +269,9 @@ background-color:  rgb(218, 121, 42);
   background-color: rgb(218, 121, 42);
 }
 footer {
-  display: inline;
+  display: block;
   border-left: 20px;
   border-right: 50px;
   border-bottom: 20px;
   font-size: 40px;
-  border: 2px dotted salmon;
 }
