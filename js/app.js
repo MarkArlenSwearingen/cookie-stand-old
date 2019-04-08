@@ -175,7 +175,6 @@ alki.render();
 calculateCookiesByHour();
 
 createTableFooter();
-console.log(simulatedStores);
 // --------------------------------
 // Event Handlers
 // --------------------------------
