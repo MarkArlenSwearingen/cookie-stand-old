@@ -98,7 +98,7 @@ var createTableHeader = function(){
     if(i === HOURS.length -1){
       th = document.createElement('th'); //create element
       th.textContent = ('Daily Location Total');
-      th.setAttribute("scope", "col");
+      th.setAttribute('scope', 'col');
       tr.appendChild(th);
     }
   }
@@ -121,7 +121,6 @@ var createTableFooter = function(){
   // for every hour stores are open, create a th element in the DOM for the hourly total for all stores.
   for (var i = 0; i < HOURS.length; i++){
     th = document.createElement('th');
-    hourTotal = totalCookiesByStore[i];
     th.textContent = totalCookiesByHour[i];
     th.setAttribute('scope', 'col');
     tr.appendChild(th);
